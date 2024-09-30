@@ -42,10 +42,4 @@ export class UsersService {
   async findById(id: number): Promise<User> {
     return this.usersRepository.findOne({ where: { id } });
   }
-
-  async findProfile(token: string): Promise<User> {
-    const decoded = this.jwtService.decode(token) as any; // Decodez le token pour obtenir les informations de l'utilisateur
-    const userId = decoded?.sub; // 'sub' est l'ID de l'utilisateur dans le payload
-    return this.findById(userId); // Récupérez l'utilisateur par ID
-  }
 }
