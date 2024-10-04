@@ -5,6 +5,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './user/users.module';
 import { User } from './user/user.entity';
 import { AuthModule } from './auth/auth.module';
+import { ReferentielModule } from './referentiels/referentiel.module';
+import { Avis, Restaurant } from './referentiels/restaurant/restaurant.entity';
 
 @Module({
   imports: [
@@ -14,12 +16,13 @@ import { AuthModule } from './auth/auth.module';
       port: 5432,
       username: 'postgres',
       password: 'azerty',
-      database: 'my_users',
-      entities: [User],
+      database: 'uber_eats',
+      entities: [User, Restaurant, Avis],
       synchronize: true,
     }),
     UsersModule,
     AuthModule,
+    ReferentielModule,
   ],
   controllers: [AppController],
   providers: [AppService],

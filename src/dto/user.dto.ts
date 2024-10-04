@@ -1,7 +1,23 @@
+import { RestaurantDto } from './restaurant.dto';
+
 export class UserDto {
-  id: number;
-  email: string;
   firstName: string;
   lastName: string;
-  // Ajoute toutes les autres propriétés que tu veux renvoyer, mais pas le mot de passe
+  email: string;
+  profilePicture: string;
+  favoriteRestaurants: RestaurantDto[];
+}
+
+export class UserRequest {
+  firstName: string;
+  lastName: string;
+  email: string;
+  profilePicture: string;
+  favoriteRestaurantsId: number[];
+}
+
+export class CreateUserDto {
+  firstName: string;
+  lastName: string;
+  email: string;
 }
